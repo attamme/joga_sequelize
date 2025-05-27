@@ -61,8 +61,26 @@ const updateArticle = (req, res) => {
     })
 }
 
+// delete article by id
+const deleteArticle = (req, res) => {
+    // get article id
+    let id = req.params.id
+
+    // delete article by Article model
+    models.Article.destroy({
+        where: { id: id }
+    })
+    .then(() => {
+        return res.status(200).json({ message: 'Article is deleted' })
+    })
+    .catch(error => {
+        return res.status(500).send(error.message)
+    })
+}
+
 // export controller functions
 module.exports = {
     createArticle,
-    updateArticle
+    updateArticle,
+    deleteArticle
 };

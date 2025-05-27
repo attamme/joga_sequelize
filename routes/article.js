@@ -11,7 +11,7 @@ router.get('/article/:slug', articleController.getArticleBySlug);
 
 router.post('/admin/article/create', articleAdminController.createArticle);
 router.patch('/admin/article/edit/:id', articleAdminController.updateArticle);
-// router.delete('/admin/article/delete/:id', articleAdminController.deleteArticle);
+router.delete('/admin/article/delete/:id', articleAdminController.deleteArticle);
 
 // export article router for using in default application file
 module.exports = router;
