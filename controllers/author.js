@@ -3,7 +3,6 @@ const sequelize = new Sequelize('mysql://root:qwerty@localhost:3306/joga_sequeli
 
 // read model data for table representation
 const models = require('../models');
-const author = require("../models/author");
 
 // show author articles
 const getAuthorArticles = (req, res) => {
