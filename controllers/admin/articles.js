@@ -34,7 +34,35 @@ const createArticle = (req, res) => {
     })
 }
 
+// update article by id
+const updateArticle = (req, res) => {
+    // get form data
+    let id = req.params.id
+    let name = req.body.name
+    let slug = req.body.slug
+    let image = req.body.image
+    let body = req.body.body
+
+    // update article by Article model
+    models.Article.update({
+        name: name,
+        slug: slug,
+        image: image,
+        body: body,
+        published: new Date().toISOString().slice(0, 19).replace('T', ' ')
+    }, {
+        where: { id: id }
+    })
+    .then(() => {
+        return res.status(200).json({ message: 'Article is updated' })
+    })
+    .catch(error => {
+        return res.status(500).send(error.message)
+    })
+}
+
 // export controller functions
 module.exports = {
-    createArticle
+    createArticle,
+    updateArticle
 };
