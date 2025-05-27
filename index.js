@@ -23,6 +23,9 @@ const articleRouter = require('./routes/article');
 app.use('/', articleRouter);
 app.use('/article', articleRouter);
 
+const authorRouter = require('./routes/author');
+app.use('/author', authorRouter);
+
 app.get('/', (req, res) => {
     res.json({ message: "Welcome tto sequelize application" })
 })

@@ -40,9 +40,5 @@ const getArticleBySlug = (req, res) => {
 // export controller functions
 module.exports = {
     getAllArticles,
-    getArticleBySlug//: (req, res) => {
-    //     const slug = req.params.slug;
-    //     const article = Article.findOne({ where: { slug } });
-    //     res.json(article);
-    // }
+    getArticleBySlug
 };
